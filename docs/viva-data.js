@@ -31,7 +31,14 @@
           pt: "A 100 metros da praia, com infraestrutura completa para negócios e lazer.",
           en: "100 meters from the beach, with full infrastructure for business and leisure.",
           es: "A 100 metros de la playa, con infraestructura completa para negocios y ocio."
-        }
+        },
+        img: "uploads/hotels/saofrancisco/piscina-predio-amarelo.jpg",
+        gallery: [
+          "uploads/hotels/saofrancisco/piscina-predio-branco.avif",
+          "uploads/hotels/saofrancisco/quarto-roxo.jpg",
+          "uploads/hotels/saofrancisco/quarto-laranja.jpg",
+          "uploads/hotels/saofrancisco/fachada-entrada.jpeg"
+        ]
       },
       {
         id: "amparo",
