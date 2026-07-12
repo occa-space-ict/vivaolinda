@@ -73,10 +73,9 @@
     <div style="max-width:1080px; margin:0 auto; display:flex; flex-direction:column; gap:clamp(28px,4vw,46px);">
       <sc-for list="{{ hotels }}" as="h" hint-placeholder-count="5">
         <article id="{{ h.id }}" data-reveal="" style="scroll-margin-top:80px; opacity:0; transform:translateY(28px); transition:opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:0; background:#f3ecda; border:1px solid rgba(120,96,48,0.2); border-radius:8px; overflow:hidden;">
-          <div style="position:relative; min-height:300px; background:rgba(231,221,196,0.6); box-shadow:inset 0 0 0 1px rgba(120,96,48,0.18); display:flex; align-items:center; justify-content:center;">
+          <div style="position:relative; min-height:300px; background:rgba(231,221,196,0.6) url('{{ h.img }}') center/cover no-repeat; box-shadow:inset 0 0 0 1px rgba(120,96,48,0.18); display:flex; align-items:center; justify-content:center;">
             <span style="position:absolute; top:14px; left:14px; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#f3ecda; padding:5px 12px; background:var(--accent); border-radius:999px;">{{ t.stay.aesho }}</span>
             <span style="position:absolute; top:10px; right:18px; font-family:'Cormorant Garamond',serif; font-weight:500; font-size:54px; color:rgba(120,96,48,0.3); line-height:1;">{{ h.num }}</span>
-            <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.1em; color:#8a7656;">{{ t.photo }}</span>
           </div>
           <div style="padding:clamp(26px,3vw,44px); display:flex; flex-direction:column; justify-content:center; gap:12px;">
             <span style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent);">{{ h.hood }}</span>
@@ -87,6 +86,11 @@
               <a href="{{ h.waLink }}" onClick="{{ h.trackWa }}" style="display:inline-flex; align-items:center; gap:8px; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; padding:12px 20px; border-radius:999px; background:#3f6b3a; color:#f3ecda; border:1px solid #3f6b3a; transition:transform .25s ease;" style-hover="transform:translateY(-2px);">{{ t.buttons.whatsapp }}</a>
               <a href="{{ h.bookingLink }}" onClick="{{ h.trackBooking }}" style="display:inline-flex; align-items:center; gap:8px; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; padding:12px 20px; border-radius:999px; background:transparent; color:var(--accent); border:1px solid rgba(120,96,48,0.5); transition:background .25s ease;" style-hover="background:rgba(120,96,48,0.1);">{{ t.buttons.booking }}</a>
             </div>
+          </div>
+          <div style="grid-column:1/-1; display:flex; gap:6px; padding:0 0 6px;">
+            <sc-for list="{{ h.gallery }}" as="g" hint-placeholder-count="0">
+              <div style="flex:1; aspect-ratio:4/3; background:rgba(231,221,196,0.6) url('{{ g }}') center/cover no-repeat;"></div>
+            </sc-for>
           </div>
         </article>
       </sc-for>
@@ -218,7 +222,7 @@ class Component extends DCLogic {
     var hotels = D ? D.hotels.map(function (h, i) {
       return {
         id: h.id, name: h.name, hood: h.hood, desc: h.desc[lang],
-        num: i + 1,
+        num: i + 1, img: h.img || '', gallery: h.gallery || [],
         reserveLink: '#', bookingLink: '#', waLink: 'https://wa.me/' + num,
         trackReserve: function () { self.track('hotel_' + h.id + '_reserve_site'); },
         trackWa: function () { self.track('hotel_' + h.id + '_whatsapp'); },

@@ -33,7 +33,15 @@
           pt: "Casarão à beira da falésia, com vista aberta para o mar e a silhueta do Recife.",
           en: "A mansion on the cliff's edge, with open views of the sea and the Recife skyline.",
           es: "Caserón al borde del acantilado, con vista abierta al mar y la silueta de Recife."
-        }
+        },
+        img: "uploads/hotels/amparo/piscina-por-do-sol.avif",
+        gallery: [
+          "uploads/hotels/amparo/terraco-vista-noturna.avif",
+          "uploads/hotels/amparo/suite-colonial.avif",
+          "uploads/hotels/amparo/quarto-mansarda.avif",
+          "uploads/hotels/amparo/recepcao.avif",
+          "uploads/hotels/amparo/gastronomia.avif"
+        ]
       },
       {
         id: "quatrocantos",
