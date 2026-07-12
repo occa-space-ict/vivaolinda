@@ -1,8 +1,0 @@
-/* Webfonts — Sistema Olinda.
-   The brand ships three Google-hosted serifs/mono for the heritage voice, plus
-   Hanken Grotesk (sans) for the Present / Future voices. Consumers load them
-   from the Google Fonts CDN (the @font-face rules live in the imported sheet).
-   If you need self-hosted binaries, drop .woff2 files in assets/fonts/ and
-   replace these @import lines with local @font-face declarations. */
-
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');

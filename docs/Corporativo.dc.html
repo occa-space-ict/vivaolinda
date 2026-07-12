@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="_ds/sistema-olinda-design-system-7da6e447-abde-4968-98de-278e0f55b276/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/sistema-olinda-design-system-7da6e447-abde-4968-98de-278e0f55b276/tokens/colors.css">
+<link rel="stylesheet" href="_ds/sistema-olinda-design-system-7da6e447-abde-4968-98de-278e0f55b276/tokens/typography.css">
+<link rel="stylesheet" href="_ds/sistema-olinda-design-system-7da6e447-abde-4968-98de-278e0f55b276/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/sistema-olinda-design-system-7da6e447-abde-4968-98de-278e0f55b276/tokens/effects.css">
+<link rel="stylesheet" href="_ds/sistema-olinda-design-system-7da6e447-abde-4968-98de-278e0f55b276/styles.css">
+<script src="_ds/sistema-olinda-design-system-7da6e447-abde-4968-98de-278e0f55b276/_ds_bundle.js"></script>
+<script src="viva-data.js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+</script>
+<style>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;}
+  @keyframes vo-fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+</style>
+</helmet>
+
+<div ref="{{ rootRef }}" data-screen-label="Corporativo / MICE — Viva Olinda" style="--accent:#9a5a3c; --accent-soft:#c08664; position:relative; min-height:100vh; display:flex; flex-direction:column; background:#e7ddc4; color:#2b2418; font-family:'EB Garamond', Georgia, serif; -webkit-font-smoothing:antialiased; overflow-x:hidden;">
+
+  <div style="position:fixed; inset:0; pointer-events:none; z-index:60; background:radial-gradient(130% 110% at 50% 32%, rgba(0,0,0,0) 58%, rgba(58,44,20,0.15) 100%); mix-blend-mode:multiply;"></div>
+  <div style="position:fixed; inset:0; pointer-events:none; z-index:59; background-image:radial-gradient(rgba(70,52,20,0.16) 0.5px, transparent 0.6px); background-size:3px 3px; opacity:0.5;"></div>
+
+  <!-- NAV -->
+  <nav style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; padding:13px clamp(20px,5vw,56px); background:rgba(231,221,196,0.85); backdrop-filter:blur(7px); -webkit-backdrop-filter:blur(7px); border-bottom:1px solid rgba(120,96,48,0.22);">
+    <a href="index.html" style="display:flex; align-items:baseline; gap:12px; text-decoration:none;">
+      <span style="font-family:'Cormorant Garamond',serif; font-weight:600; font-size:22px; letter-spacing:0.04em; color:#241d12;">Viva Olinda</span>
+      <span style="font-size:10.5px; letter-spacing:0.28em; text-transform:uppercase; color:var(--accent);">{{ t.present }}</span>
+    </a>
+    <div style="display:flex; align-items:center; gap:clamp(14px,2.4vw,28px); flex-wrap:wrap;">
+      <a href="index.html" style="font-size:12.5px; letter-spacing:0.16em; text-transform:uppercase; color:#5a4824; text-decoration:none;" style-hover="color:var(--accent);">← {{ t.back }}</a>
+      <div style="display:flex; gap:2px; border:1px solid rgba(120,96,48,0.34); border-radius:999px; padding:3px; background:rgba(243,236,218,0.7);">
+        <sc-for list="{{ langs }}" as="l" hint-placeholder-count="3">
+          <button onClick="{{ l.onClick }}" style="border:none; background:{{ l.bg }}; color:{{ l.fg }}; font-family:'IBM Plex Mono',monospace; font-size:11px; padding:6px 11px; border-radius:999px; cursor:pointer; letter-spacing:0.12em;">{{ l.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+  </nav>
+
+  <main style="flex:1; display:flex; flex-direction:column;">
+    <!-- HERO -->
+    <section style="position:relative; overflow:hidden; padding:clamp(64px,10vw,130px) clamp(24px,6vw,90px) clamp(50px,7vw,80px);">
+      <div style="position:absolute; inset:0; background:url('assets/olinda-cerco.png') center 40%/cover no-repeat; mix-blend-mode:multiply; filter:sepia(0.16) contrast(1.05); opacity:0.42;"></div>
+      <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(231,221,196,0.55) 0%, rgba(231,221,196,0.45) 45%, rgba(231,221,196,0.9) 100%);"></div>
+      <div style="position:relative; max-width:760px; margin:0 auto; text-align:center; animation:vo-fadeUp 1s cubic-bezier(.2,.7,.2,1) both;">
+        <span style="display:inline-block; font-size:10.5px; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent); border:1px solid rgba(120,96,48,0.4); padding:7px 16px; border-radius:999px; margin-bottom:26px;">{{ t.mice.soon }} · {{ t.mice.tag }}</span>
+        <h1 style="margin:0 0 24px; font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(44px,8vw,92px); line-height:0.92; letter-spacing:0.02em; color:#241d12;">{{ t.mice.title }}</h1>
+        <div style="width:90px; height:1px; background:var(--accent); margin:0 auto 26px;"></div>
+        <p style="margin:0 auto 38px; max-width:600px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(18px,2vw,24px); line-height:1.55; color:#473b25;">{{ t.mice.body }}</p>
+        <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+          <a href="{{ wa }}" onClick="{{ trackWa }}" style="display:inline-flex; align-items:center; gap:10px; font-size:14px; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; padding:14px 30px; border-radius:999px; background:var(--accent); color:#f3ecda; border:1px solid var(--accent); transition:transform .25s ease, box-shadow .25s ease;" style-hover="transform:translateY(-2px); box-shadow:0 10px 24px rgba(120,96,48,0.3);">{{ t.mice.cta }} <span style="font-size:17px; line-height:1;">→</span></a>
+          <a href="index.html#contato" style="display:inline-flex; align-items:center; gap:10px; font-size:14px; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; padding:14px 28px; border-radius:999px; background:transparent; color:var(--accent); border:1px solid rgba(120,96,48,0.5); transition:background .25s ease, transform .25s ease;" style-hover="background:rgba(120,96,48,0.1); transform:translateY(-2px);">{{ t.contact.title }}</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- divider -->
+    <div style="display:flex; align-items:center; justify-content:center; gap:18px; padding:0 24px; max-width:560px; margin:0 auto clamp(40px,6vw,56px);">
+      <span style="flex:1; height:1px; background:linear-gradient(90deg, transparent, rgba(120,96,48,0.5));"></span>
+      <span style="font-family:'Cormorant Garamond',serif; color:var(--accent); font-size:18px;">◆</span>
+      <span style="flex:1; height:1px; background:linear-gradient(90deg, rgba(120,96,48,0.5), transparent);"></span>
+    </div>
+
+    <!-- CARDS -->
+    <section style="padding:0 clamp(24px,6vw,90px) clamp(64px,9vw,110px);">
+      <div style="max-width:1080px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px;">
+        <sc-for list="{{ cards }}" as="c" hint-placeholder-count="3">
+          <div data-reveal="" style="opacity:0; transform:translateY(24px); transition:opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); background:rgba(243,236,218,0.6); border:1px solid rgba(120,96,48,0.18); border-radius:6px; padding:28px;">
+            <div style="font-family:'Cormorant Garamond',serif; font-weight:600; font-size:22px; color:#2b2418; margin-bottom:10px; line-height:1.1;">{{ c.title }}</div>
+            <p style="margin:0; font-size:15.5px; line-height:1.6; color:#4a3e29;">{{ c.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer style="padding:24px clamp(24px,6vw,90px); border-top:1px solid rgba(120,96,48,0.22); display:flex; flex-wrap:wrap; gap:16px; justify-content:space-between; align-items:center;">
+    <p style="margin:0; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; color:#6a5836;">{{ t.footer.signature }}</p>
+    <p style="margin:0; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.1em; color:var(--accent);">{{ t.footer.made }}</p>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:820},&quot;defaultLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;pt&quot;,&quot;en&quot;,&quot;es&quot;],&quot;default&quot;:&quot;pt&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Terracota&quot;,&quot;Carmim&quot;,&quot;Sépia dourado&quot;],&quot;default&quot;:&quot;Terracota&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5581000000000&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    var saved = null;
+    try { saved = localStorage.getItem('viva-lang'); } catch (e) {}
+    this.state = { lang: saved || props.defaultLang || 'pt' };
+  }
+
+  getAcc() {
+    var map = {
+      'Terracota': ['#9a5a3c', '#c08664'],
+      'Carmim': ['#813a3f', '#a86870'],
+      'Sépia dourado': ['#8a6d3b', '#b79a64']
+    };
+    return map[this.props.accent] || map['Terracota'];
+  }
+
+  applyAccent() {
+    if (!this.root) return;
+    var a = this.getAcc();
+    this.root.style.setProperty('--accent', a[0]);
+    this.root.style.setProperty('--accent-soft', a[1]);
+  }
+
+  componentDidMount() {
+    this.applyAccent();
+    if (!window.VIVA_DATA) {
+      var self = this, n = 0;
+      var iv = setInterval(function () {
+        n++;
+        if (window.VIVA_DATA) { clearInterval(iv); self.forceUpdate(); }
+        else if (n > 120) { clearInterval(iv); }
+      }, 30);
+    }
+    this._initMotion();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.accent !== this.props.accent) this.applyAccent();
+  }
+
+  _initMotion() {
+    var root = this.root || document;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var reveals = [].slice.call(root.querySelectorAll('[data-reveal]'));
+    if (reduce) {
+      reveals.forEach(function (el) { el.style.opacity = '1'; el.style.transform = 'none'; });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    reveals.forEach(function (el) { io.observe(el); });
+    this._io = io;
+  }
+
+  componentWillUnmount() { if (this._io) this._io.disconnect(); }
+
+  track(label) {
+    if (window.gtag) window.gtag('event', 'click', { event_category: 'cta', event_label: label });
+  }
+
+  setLang(code) {
+    try { localStorage.setItem('viva-lang', code); } catch (e) {}
+    this.setState({ lang: code });
+  }
+
+  renderVals() {
+    var D = window.VIVA_DATA;
+    var lang = this.state.lang;
+    var t = (D && D.i18n[lang]) || { mice: {}, contact: {}, footer: {} };
+    var self = this;
+
+    var num = (this.props.whatsappNumber || '5581000000000').replace(/[^0-9]/g, '');
+
+    var cardSets = {
+      pt: [
+        { title: 'Espaços corporativos', body: 'Auditórios, salões e casarões históricos para eventos de grupo — em levantamento.' },
+        { title: 'Experiências para grupos', body: 'Roteiros culturais, gastronômicos e de incentivo desenhados sob medida.' },
+        { title: 'Capacidade & infraestrutura', body: 'Fichas técnicas, capacidades e gravuras serão publicadas em breve.' }
+      ],
+      en: [
+        { title: 'Corporate venues', body: 'Auditoriums, halls and historic mansions for group events — being surveyed.' },
+        { title: 'Group experiences', body: 'Cultural, culinary and incentive itineraries designed to measure.' },
+        { title: 'Capacity & infrastructure', body: 'Spec sheets, capacities and images will be published soon.' }
+      ],
+      es: [
+        { title: 'Espacios corporativos', body: 'Auditorios, salones y caserones históricos para eventos de grupo — en relevamiento.' },
+        { title: 'Experiencias para grupos', body: 'Itinerarios culturales, gastronómicos y de incentivo hechos a medida.' },
+        { title: 'Capacidad e infraestructura', body: 'Fichas técnicas, capacidades e imágenes se publicarán pronto.' }
+      ]
+    };
+
+    var langs = [['pt', 'PT'], ['en', 'EN'], ['es', 'ES']].map(function (p) {
+      var active = lang === p[0];
+      return { label: p[1], bg: active ? '#2b2418' : 'transparent', fg: active ? '#f3ecda' : '#8a7656', onClick: function () { self.setLang(p[0]); } };
+    });
+
+    return {
+      rootRef: function (el) { if (el) { self.root = el; self.applyAccent(); } },
+      t: t, langs: langs,
+      wa: 'https://wa.me/' + num,
+      cards: cardSets[lang] || cardSets.pt,
+      trackWa: function () { self.track('mice_whatsapp'); }
+    };
+  }
+}
+</script>
+</body>
+</html>
