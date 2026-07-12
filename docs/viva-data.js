@@ -59,7 +59,15 @@
           pt: "Casarão do século XVIII restaurado, com o autêntico clima do Sítio Histórico de Olinda.",
           en: "A restored 18th-century mansion with the authentic atmosphere of Olinda's Historic Site.",
           es: "Caserón del siglo XVIII restaurado, con el auténtico ambiente del Sitio Histórico de Olinda."
-        }
+        },
+        img: "uploads/hotels/quatrocantos/varanda-fachada.webp",
+        gallery: [
+          "uploads/hotels/quatrocantos/quarto-dossel.webp",
+          "uploads/hotels/quatrocantos/quarto-mansarda.webp",
+          "uploads/hotels/quatrocantos/sala-estar.webp",
+          "uploads/hotels/quatrocantos/sala-jantar.webp",
+          "uploads/hotels/quatrocantos/piscina.webp"
+        ]
       },
       {
         id: "costeiro",
