@@ -77,7 +77,13 @@
           pt: "O primeiro três estrelas à beira-mar de Olinda, a 10 minutos do centro do Recife.",
           en: "Olinda's first beachfront three-star hotel, 10 minutes from downtown Recife.",
           es: "El primer tres estrellas frente al mar de Olinda, a 10 minutos del centro de Recife."
-        }
+        },
+        img: "uploads/hotels/costeiro/piscina-vista-mar.jpeg",
+        gallery: [
+          "uploads/hotels/costeiro/quarto-vista-mar.avif",
+          "uploads/hotels/costeiro/quarto.jpeg",
+          "uploads/hotels/costeiro/recepcao.jpeg"
+        ]
       }
     ],
 
