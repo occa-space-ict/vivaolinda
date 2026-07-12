@@ -124,11 +124,14 @@
 
     /* ---------- EXPERIÊNCIAS ---------- */
     experiences: [
-      { name: "Receptivo de Olinda", featured: true,
-        desc: { pt: "Receptivo local com guias credenciados para roteiros sob medida pelo Sítio Histórico.", en: "Local receptive operator with accredited guides for tailor-made tours of the Historic Site.", es: "Receptivo local con guías acreditados para recorridos a medida por el Sitio Histórico." } },
-      { name: "Trilha Ecológica Horto Del Rey", featured: false,
-        desc: { pt: "Caminhada guiada pela mata atlântica urbana com vista para o casario colonial.", en: "Guided hike through urban Atlantic Forest overlooking the colonial rooftops.", es: "Caminata guiada por la mata atlántica urbana con vista al casario colonial." } },
+      { name: "Olinda Receptivo & Tour", featured: true,
+        img: "uploads/experiences/olinda-receptivo-tour/jipe-tour.webp",
+        desc: { pt: "Passeios guiados em jipes 4x4 pelas ladeiras e principais pontos do Sítio Histórico, com motoristas-guias que contam a história de Olinda ao longo do caminho. Funciona todos os dias da semana.", en: "Guided 4x4 jeep rides through the slopes and main sights of the Historic Site, with driver-guides sharing Olinda's history along the way. Running seven days a week.", es: "Paseos guiados en jeeps 4x4 por las cuestas y los principales puntos del Sitio Histórico, con conductores-guías que cuentan la historia de Olinda en el camino. Funciona todos los días de la semana." } },
+      { name: "Trilha Horto Del Rey", featured: false,
+        img: "uploads/experiences/trilha-horto-del-rey/trilha-grupo.jpeg",
+        desc: { pt: "Caminhada pelo antigo Horto D'El Rey, viveiro real de plantas fundado em 1811 pelo naturalista Manuel Arruda da Câmara — hoje um fragmento preservado de mata atlântica no coração de Olinda.", en: "A walk through the former Horto D'El Rey, a royal plant nursery founded in 1811 by naturalist Manuel Arruda da Câmara — now a preserved Atlantic Forest fragment in the heart of Olinda.", es: "Una caminata por el antiguo Horto D'El Rey, un vivero real de plantas fundado en 1811 por el naturalista Manuel Arruda da Câmara — hoy un fragmento preservado de mata atlántica en el corazón de Olinda." } },
       { name: "Tour Histórico", featured: false,
+        img: "uploads/experiences/tour-historico/rua-sao-bento.jpg",
         desc: { pt: "Percurso a pé pelas igrejas barrocas, ladeiras e mirantes de Olinda.", en: "Walking route through Olinda's baroque churches, slopes and lookouts.", es: "Recorrido a pie por las iglesias barrocas, cuestas y miradores de Olinda." } },
       { name: "Olinda Negro", featured: false,
         desc: { pt: "Roteiro pelas raízes afro-pernambucanas de Olinda — terreiros, maracatu, frevo e a memória do quilombo. Conduzido por guias e griots da própria comunidade.", en: "A route through Olinda's Afro-Pernambuco roots — terreiros, maracatu, frevo and quilombo memory. Led by community guides and griots.", es: "Un recorrido por las raíces afro-pernambucanas de Olinda — terreiros, maracatú, frevo y la memoria del quilombo. Conducido por guías y griots de la comunidad." } }
