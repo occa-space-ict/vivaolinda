@@ -13,7 +13,15 @@
           pt: "Construções integradas a jardins floridos e vegetação tropical, em contraste vivo com a arquitetura colonial.",
           en: "Buildings set among flowering gardens and tropical greenery, in vivid contrast with the colonial architecture.",
           es: "Construcciones integradas a jardines floridos y vegetación tropical, en vivo contraste con la arquitectura colonial."
-        }
+        },
+        img: "uploads/hotels/7colinas/piscina-jardim.jpeg",
+        gallery: [
+          "uploads/hotels/7colinas/quarto.jpeg",
+          "uploads/hotels/7colinas/fachada.jpeg",
+          "uploads/hotels/7colinas/restaurante-cafe.jpeg",
+          "uploads/hotels/7colinas/entrada.jpeg",
+          "uploads/hotels/7colinas/recepcao-arco.jpeg"
+        ]
       },
       {
         id: "saofrancisco",
