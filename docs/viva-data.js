@@ -134,7 +134,11 @@
         img: "uploads/experiences/tour-historico/rua-sao-bento.jpg",
         desc: { pt: "Percurso a pé pelas igrejas barrocas, ladeiras e mirantes de Olinda.", en: "Walking route through Olinda's baroque churches, slopes and lookouts.", es: "Recorrido a pie por las iglesias barrocas, cuestas y miradores de Olinda." } },
       { name: "Olinda Negro", featured: false,
-        desc: { pt: "Roteiro pelas raízes afro-pernambucanas de Olinda — terreiros, maracatu, frevo e a memória do quilombo. Conduzido por guias e griots da própria comunidade.", en: "A route through Olinda's Afro-Pernambuco roots — terreiros, maracatu, frevo and quilombo memory. Led by community guides and griots.", es: "Un recorrido por las raíces afro-pernambucanas de Olinda — terreiros, maracatú, frevo y la memoria del quilombo. Conducido por guías y griots de la comunidad." } }
+        img: "uploads/experiences/olinda-negro/roteiro-afro.jpeg",
+        desc: { pt: "Roteiro pelas raízes afro-pernambucanas de Olinda — terreiros, maracatu, frevo e a memória do quilombo. Conduzido por guias e griots da própria comunidade.", en: "A route through Olinda's Afro-Pernambuco roots — terreiros, maracatu, frevo and quilombo memory. Led by community guides and griots.", es: "Un recorrido por las raíces afro-pernambucanas de Olinda — terreiros, maracatú, frevo y la memoria del quilombo. Conducido por guías y griots de la comunidad." } },
+      { name: "Sabores de Olinda", featured: false,
+        img: "uploads/experiences/sabores-de-olinda/tour-gastronomico.png",
+        desc: { pt: "Um passeio que revela as histórias por trás dos ícones da gastronomia olindense. Ao longo do roteiro, você conhece as tradições, os lugares e experimenta alguns dos sabores que fazem parte da identidade da cidade.", en: "A tour that reveals the stories behind the icons of Olinda's gastronomy. Along the way, you get to know the traditions, the places, and taste some of the flavors that are part of the city's identity.", es: "Un recorrido que revela las historias detrás de los íconos de la gastronomía de Olinda. En el camino, conocerás las tradiciones, los lugares y probarás algunos de los sabores que forman parte de la identidad de la ciudad." } }
     ],
 
     /* ---------- LUGARES PARA VISITAR ---------- */
