@@ -1,0 +1,39 @@
+/* ============================================================
+   SPACING & LAYOUT — Sistema Olinda
+   A calm, document-like rhythm. Sections breathe with fluid
+   vertical padding; content holds to a ~1180px measure.
+   ============================================================ */
+
+:root {
+  /* ---- Base spacing scale (4px grid) ---- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  40px;
+  --space-8:  56px;
+  --space-9:  72px;
+  --space-10: 96px;
+
+  /* ---- Fluid section rhythm ---- */
+  --section-y:    clamp(70px, 11vh, 130px);   /* @kind spacing */
+  --section-x:    clamp(24px, 6vw, 90px);     /* @kind spacing */
+  --gap-cards:    clamp(28px, 4vw, 52px);     /* @kind spacing */
+
+  /* ---- Measure / containers ---- */
+  --measure:      1180px;   /* @kind spacing */
+  --measure-text: 640px;    /* @kind spacing */
+
+  /* ---- Radii (engraving = barely-there corners) ---- */
+  --radius-sm:    3px;
+  --radius-md:    4px;       /* default cards, images */
+  --radius-lg:    6px;       /* panels, palette cards */
+  --radius-pill:  999px;     /* buttons, badges, tags */
+
+  /* ---- Control sizing ---- */
+  --control-pad-y: 14px;
+  --control-pad-x: 30px;
+  --icon-btn:      38px;     /* round icon buttons / carousel arrows */
+}
