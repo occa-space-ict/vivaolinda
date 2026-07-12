@@ -413,8 +413,15 @@
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(244px,1fr)); gap:24px;">
       <sc-for list="{{ hotels }}" as="h" hint-placeholder-count="5">
         <a href="Hospedagem.dc.html#{{ h.id }}" style="display:flex; flex-direction:column; text-decoration:none; color:inherit; background:#f3ecda; border:1px solid rgba(120,96,48,0.2); border-radius:6px; overflow:hidden; transition:transform .25s ease, box-shadow .25s ease;" style-hover="transform:translateY(-4px); box-shadow:0 14px 30px rgba(90,72,36,0.18);">
-          <div style="position:relative; aspect-ratio:16/11; background:rgba(231,221,196,0.6) url('{{ h.img }}') center/cover no-repeat; box-shadow:inset 0 0 0 1px rgba(120,96,48,0.18); display:flex; align-items:center; justify-content:center;">
+          <div style="position:relative; aspect-ratio:16/11; background:rgba(231,221,196,0.6) url('{{ h.curImg }}') center/cover no-repeat; box-shadow:inset 0 0 0 1px rgba(120,96,48,0.18); display:flex; align-items:center; justify-content:center;">
             <span style="position:absolute; top:11px; left:11px; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#f3ecda; padding:5px 11px; background:var(--accent); border-radius:999px;">{{ t.stay.aesho }}</span>
+            <span onClick="{{ h.onPrev }}" aria-label="Foto anterior" style="display:{{ h.arrowDisplay }}; align-items:center; justify-content:center; position:absolute; left:8px; top:50%; transform:translateY(-50%); width:26px; height:26px; border-radius:50%; background:rgba(43,36,24,0.5); color:#f3ecda; font-size:13px; line-height:1; cursor:pointer; z-index:2;">&#8592;</span>
+            <span onClick="{{ h.onNext }}" aria-label="Próxima foto" style="display:{{ h.arrowDisplay }}; align-items:center; justify-content:center; position:absolute; right:8px; top:50%; transform:translateY(-50%); width:26px; height:26px; border-radius:50%; background:rgba(43,36,24,0.5); color:#f3ecda; font-size:13px; line-height:1; cursor:pointer; z-index:2;">&#8594;</span>
+            <div style="display:{{ h.arrowDisplay }}; position:absolute; bottom:8px; left:0; right:0; justify-content:center; gap:5px; z-index:2;">
+              <sc-for list="{{ h.dots }}" as="d" hint-placeholder-count="0">
+                <span onClick="{{ d.onClick }}" style="width:6px; height:6px; border-radius:50%; cursor:pointer; background:{{ d.color }};"></span>
+              </sc-for>
+            </div>
           </div>
           <div style="padding:18px 20px 22px; display:flex; flex-direction:column; gap:7px; flex:1;">
             <span style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent);">{{ h.hood }}</span>
@@ -617,8 +624,14 @@ class Component extends DCLogic {
     super(props);
     var saved = null;
     try { saved = localStorage.getItem('viva-lang'); } catch (e) {}
-    this.state = { lang: saved || props.defaultLang || 'pt', sent: false, mobileMenu: false };
+    this.state = { lang: saved || props.defaultLang || 'pt', sent: false, mobileMenu: false, carousel: {} };
     this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  setCarouselIndex(id, idx) {
+    var updated = Object.assign({}, this.state.carousel || {});
+    updated[id] = idx;
+    this.setState({ carousel: updated });
   }
 
   getAcc() {
@@ -1278,7 +1291,23 @@ class Component extends DCLogic {
       };
     });
 
-    var hotels = D ? D.hotels.map(function (h) { return { id: h.id, name: h.name, hood: h.hood, desc: h.desc[lang], img: h.img || '' }; }) : [];
+    var carouselState = this.state.carousel || {};
+    var hotels = D ? D.hotels.map(function (h) {
+      var images = [h.img].concat(h.gallery || []).filter(Boolean);
+      var idx = carouselState[h.id] || 0;
+      if (idx >= images.length) idx = 0;
+      var hasMulti = images.length > 1;
+      return {
+        id: h.id, name: h.name, hood: h.hood, desc: h.desc[lang],
+        curImg: images[idx] || '',
+        arrowDisplay: hasMulti ? 'flex' : 'none',
+        onPrev: function (e) { e.preventDefault(); e.stopPropagation(); self.setCarouselIndex(h.id, (idx - 1 + images.length) % images.length); },
+        onNext: function (e) { e.preventDefault(); e.stopPropagation(); self.setCarouselIndex(h.id, (idx + 1) % images.length); },
+        dots: hasMulti ? images.map(function (_, i) {
+          return { color: i === idx ? '#f3ecda' : 'rgba(243,236,218,0.4)', onClick: function (e) { e.preventDefault(); e.stopPropagation(); self.setCarouselIndex(h.id, i); } };
+        }) : []
+      };
+    }) : [];
     var restaurants = D ? D.restaurants.map(function (r, i) { return { name: r.name, desc: r.desc[lang], tel: r.tel, link: r.link, n: i + 1 }; }) : [];
     var exps = D ? D.experiences.map(function (e) { return { name: e.name, desc: e.desc[lang], featured: e.featured }; }) : [];
     var places = D ? D.places.map(function (p) { return { name: p.name, desc: p.desc[lang], featured: p.featured, placeholder: p.placeholder }; }) : [];
