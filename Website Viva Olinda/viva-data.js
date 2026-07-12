@@ -30,9 +30,9 @@
         name: "Pousada do Amparo",
         hood: "Amparo",
         desc: {
-          pt: "Casarão à beira da falésia, com vista aberta para o mar e a silhueta do Recife.",
-          en: "A mansion on the cliff's edge, with open views of the sea and the Recife skyline.",
-          es: "Caserón al borde del acantilado, con vista abierta al mar y la silueta de Recife."
+          pt: "Pousada boutique com mais de 30 anos no Sítio Histórico, piscina com vista para o Recife e dois restaurantes autorais.",
+          en: "A 30-year boutique inn in the Historic Site, with a Recife-view pool and two signature restaurants.",
+          es: "Posada boutique con más de 30 años en el Sitio Histórico, piscina con vista a Recife y dos restaurantes de autor."
         },
         img: "uploads/hotels/amparo/piscina-por-do-sol.avif",
         gallery: [
