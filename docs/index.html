@@ -517,16 +517,20 @@
     <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:22px;">{{ t.doing.places }}</div>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(258px,1fr)); gap:22px;">
       <sc-for list="{{ placeFeatured }}" as="p" hint-placeholder-count="1">
-        <div style="background:var(--accent); border-radius:6px; padding:32px; display:flex; flex-direction:column; justify-content:flex-end; min-height:220px;">
-          <span style="align-self:flex-start; font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); background:#f3ecda; padding:5px 12px; border-radius:999px; margin-bottom:auto;">{{ t.doing.featured }}</span>
-          <h4 style="margin:18px 0 9px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:clamp(24px,2.6vw,30px); line-height:1.02; color:#f6efdd;">{{ p.name }}</h4>
-          <p style="margin:0; font-size:16px; line-height:1.5; color:#f0e3d6;">{{ p.desc }}</p>
+        <div style="position:relative; border-radius:6px; overflow:hidden; padding:32px; display:flex; flex-direction:column; justify-content:flex-end; min-height:220px;">
+          <img src="{{ p.img }}" alt="{{ p.name }}" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+          <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(231,221,196,0.08) 0%, rgba(33,26,14,0.8) 100%);"></div>
+          <span style="position:relative; align-self:flex-start; font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:#241d12; background:var(--accent-soft); padding:5px 12px; border-radius:999px; margin-bottom:auto;">{{ t.doing.featured }}</span>
+          <h4 style="position:relative; margin:18px 0 9px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:clamp(24px,2.6vw,30px); line-height:1.02; color:#f6efdd;">{{ p.name }}</h4>
+          <p style="position:relative; margin:0; font-size:16px; line-height:1.5; color:#f0e3d6;">{{ p.desc }}</p>
         </div>
       </sc-for>
       <sc-for list="{{ placeRest }}" as="p" hint-placeholder-count="2">
-        <div style="background:rgba(243,236,218,0.6); border:1px solid rgba(120,96,48,0.18); border-radius:6px; padding:28px; display:flex; flex-direction:column; gap:10px; min-height:220px;">
-          <h4 style="margin:0; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:23px; line-height:1.05; color:#2b2418;">{{ p.name }}</h4>
-          <p style="margin:0; font-size:15.5px; line-height:1.6; color:#4a3e29;">{{ p.desc }}</p>
+        <div style="position:relative; border-radius:6px; overflow:hidden; padding:28px; display:flex; flex-direction:column; gap:10px; min-height:220px; justify-content:flex-end;">
+          <img src="{{ p.img }}" alt="{{ p.name }}" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+          <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(231,221,196,0.05) 0%, rgba(33,26,14,0.82) 100%);"></div>
+          <h4 style="position:relative; margin:0; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:23px; line-height:1.05; color:#f3ecda;">{{ p.name }}</h4>
+          <p style="position:relative; margin:0; font-size:15.5px; line-height:1.6; color:#e7ddc4;">{{ p.desc }}</p>
         </div>
       </sc-for>
     </div>
@@ -1274,7 +1278,23 @@ class Component extends DCLogic {
         { key: 'XII',  label: 'Horto del Rey',                 sub: 'Jardín histórico · siglo XVII',              body: 'Creado por Mauricio de Nassau en el siglo XVII, es uno de los raros fragmentos de mata atlántica urbana de Olinda. Senderos sombreados, aves y silencio a dos pasos del centro histórico.' }
       ]
     };
-    return d[lang] || d.pt;
+    var historicImgs = [
+      'uploads/historic/01-igreja-da-se/fachada-mar.jpg',
+      'uploads/historic/02-mosteiro-sao-bento/fachada.jpg',
+      'uploads/historic/03-convento-sao-francisco/fachada-coqueiros.jpg',
+      'uploads/historic/04-igreja-do-carmo/fachada.jpg',
+      'uploads/historic/05-igreja-ns-do-monte/fachada.jpg',
+      'uploads/historic/06-igreja-misericordia/por-do-sol.jpg',
+      'uploads/historic/07-alto-da-se-mirante/vista-panoramica.jpg',
+      'uploads/historic/08-museu-mamulengo/fachada-bonecos.jpg',
+      'uploads/historic/09-mercado-eufrasio-barbosa/varadouro-aereo.jpg',
+      'uploads/historic/10-palacio-governadores/fachada.jpg',
+      'uploads/historic/11-farol-de-olinda/farol.jpg',
+      'uploads/experiences/trilha-horto-del-rey/trilha-grupo.jpeg'
+    ];
+    return (d[lang] || d.pt).map(function (item, i) {
+      return Object.assign({ img: historicImgs[i] || '' }, item);
+    });
   }
 
   renderVals() {
@@ -1314,7 +1334,7 @@ class Component extends DCLogic {
     }) : [];
     var restaurants = D ? D.restaurants.map(function (r, i) { return { name: r.name, desc: r.desc[lang], tel: r.tel, link: r.link, n: i + 1 }; }) : [];
     var exps = D ? D.experiences.map(function (e) { return { name: e.name, desc: e.desc[lang], featured: e.featured, img: e.img || 'assets/olinda-cerco.png' }; }) : [];
-    var places = D ? D.places.map(function (p) { return { name: p.name, desc: p.desc[lang], featured: p.featured, placeholder: p.placeholder }; }) : [];
+    var places = D ? D.places.map(function (p) { return { name: p.name, desc: p.desc[lang], featured: p.featured, placeholder: p.placeholder, img: p.img || 'assets/olinda-cerco.png' }; }) : [];
     var bearings = ['· SW', '· Sul', '· Sul', '· Norte', '· Sul', '· NE'];
     var geoImgs = ['assets/geo/recife-mirante.jpg', 'assets/geo/olinda-aerea.jpg', 'assets/geo/recife-mirante.jpg', 'assets/geo/olinda-aerea.jpg', 'assets/geo/recife-mirante.jpg', 'assets/geo/olinda-aerea.jpg'];
     self._geoImgs = geoImgs;
@@ -1392,12 +1412,11 @@ class Component extends DCLogic {
             style: { display: 'flex', gap: '14px', alignItems: 'flex-start' }
           },
             React.createElement('img', {
-              src: 'assets/olinda-cerco.png',
+              src: item.img || 'assets/olinda-cerco.png',
               alt: item.label,
               style: {
                 width: '96px', height: '68px', objectFit: 'cover', flexShrink: 0,
-                borderRadius: '3px', filter: 'sepia(0.22) contrast(1.05) brightness(0.95)',
-                mixBlendMode: 'multiply', border: '1px solid rgba(120,96,48,0.2)'
+                borderRadius: '3px', border: '1px solid rgba(120,96,48,0.2)'
               }
             }),
             React.createElement('span', {
