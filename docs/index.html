@@ -1191,6 +1191,8 @@ class Component extends DCLogic {
       m.bindPopup(self._popup(r));
       self._markers.push({ m: m, r: r, n: i + 1 });
     });
+    var bounds = L.latLngBounds(D.restaurants.map(function (r) { return [r.lat, r.lng]; }));
+    map.fitBounds(bounds, { padding: [28, 28], maxZoom: 16 });
   }
 
   _icon(n) {
